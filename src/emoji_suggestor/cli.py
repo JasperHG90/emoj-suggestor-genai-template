@@ -2,7 +2,7 @@ import logging
 
 import typer
 
-from emoji_suggestor import __version__
+from emoji_suggestor import __version__, commands
 
 logger = logging.getLogger("emoji_suggestor")
 handler = logging.StreamHandler()
@@ -36,9 +36,13 @@ def version():
     help="Suggestions for emojis based on input text",
     no_args_is_help=True,
 )
-def _suggest():
+def _suggest(
+    question: str = typer.Argument(
+        ..., help="The input text for which to suggest an emoji."
+    )
+):
     logger.debug(f"emoji_suggestor version={__version__}")
-    ...
+    print(commands.text_2_emoji(question))
 
 
 def entrypoint():
