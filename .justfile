@@ -10,4 +10,4 @@ pre_commit:
 setup: install pre_commit
 
 example:
-    poetry run emoji_suggestor suggest "How does this work?"
+    poetry run emoji_suggestor suggest "How do I make apple pie?"
