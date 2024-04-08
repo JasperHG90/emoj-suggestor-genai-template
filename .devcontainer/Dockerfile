@@ -6,8 +6,9 @@ ENV TZ=Europe/Amsterdam
 ENV PYTHON_VERSION=3.10
 ENV HOME="/home/vscode"
 ENV PYENV_ROOT="$HOME/.pyenv"
-ENV PIPX_HOME="/home/vscode/.pipx"
-ENV PIPX_DEFAULT_PYTHON="/home/vscode/.pyenv/shims/python"
+ENV PIPX_HOME="$HOME/.pipx"
+ENV PIPX_DEFAULT_PYTHON="$HOME/.pyenv/shims/python"
+ENV PRE_COMMIT_HOME="$HOME/workspace/.cache/pre-commit"
 
 # Install just
 RUN wget -qO - 'https://proget.makedeb.org/debian-feeds/prebuilt-mpr.pub' | gpg --dearmor | sudo tee /usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg 1> /dev/null && \
