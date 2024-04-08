@@ -17,8 +17,9 @@
           "mongodb.mongodb-vscode",
           "njpwerner.autodocstring",
           "GitHub.copilot",
-          "pomdtr.excalidraw-editor"
-
+          "pomdtr.excalidraw-editor",
+          "tamasfe.even-better-toml",
+          "kokakiwi.vscode-just"
         ],
         "settings": {
           "python.pythonPath": "/home/vscode/.pyenv/shims/python"
@@ -33,4 +34,3 @@
     "workspaceFolder": "/home/vscode/workspace",
     "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/workspace,type=bind"
   }
-  

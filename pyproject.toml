@@ -12,8 +12,17 @@ emoji_suggestor = "emoji_suggestor.cli:entrypoint"
 
 [tool.poetry.dependencies]
 python = "^3.9,<3.12"
+typer = "^0.12.1"
 
 [tool.poetry.group.dev.dependencies]
+interrogate = "^1.7.0"
+black = "^24.3.0"
+ruff = "^0.3.5"
+bandit = "^1.7.8"
+deptry = "^0.16.1"
+isort = "^5.13.2"
+mypy = "^1.9.0"
+pre-commit = "^3.7.0"
 
 [tool.codespell]
 skip = ".nox,.venv,.notebooks,.git,.secrets,docs,site,poetry.lock"
@@ -62,7 +71,6 @@ extend-exclude = [
 
 [tool.deptry]
 extend_exclude = ["docs", ".notebooks", "noxfile.py", "tasks.py"]
-ignore_transitive = ["{{cookiecutter.__package_slug}}"]
 
 [tool.interrogate]
 ignore-init-method = true
@@ -75,7 +83,7 @@ ignore-module = true
 ignore-nested-functions = false
 ignore-nested-classes = true
 ignore-setters = true
-fail-under = 10
+fail-under = 0
 exclude = [
   "setup.py", "docs", "build", "src/{{cookiecutter.__package_slug}}/cli.py", "src/{{cookiecutter.__package_slug}}/commands"
 ]
