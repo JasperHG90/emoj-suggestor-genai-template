@@ -1,0 +1,3 @@
+Cached files & folders here.
+Ignored by .gitignore:
+- pre-commit
