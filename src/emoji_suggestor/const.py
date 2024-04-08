@@ -15,6 +15,8 @@ Emoji: 💥
 Input: Call to action
 Emoji: 📢
 
+{format_instructions}
+
 User text:
 Input: {input}
 
