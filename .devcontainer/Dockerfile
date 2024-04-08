@@ -31,9 +31,6 @@ RUN echo 'eval "$(pyenv init -)"' >> /home/vscode/.bashrc \
     && pyenv rehash \
     && pip install --no-cache-dir --upgrade pip
 
-# Databricks CLI
-RUN curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
-
 # Poetry
 RUN pipx install poetry
 
