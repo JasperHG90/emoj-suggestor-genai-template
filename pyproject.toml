@@ -1,0 +1,96 @@
+[tool.poetry]
+name = "emoji_suggestor"
+version = "0.0.0"
+description = "Create emoji suggestions for input texts"
+authors = ["Jasper Ginn"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "emoji_suggestor", from = "src" }]
+
+[tool.poetry.scripts]
+emoji_suggestor = "emoji_suggestor.cli:entrypoint"
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.12"
+
+[tool.poetry.group.dev.dependencies]
+
+[tool.codespell]
+skip = ".nox,.venv,.notebooks,.git,.secrets,docs,site,poetry.lock"
+count = ''
+quiet-level = 3
+
+[tool.black]
+line-length = 88
+exclude = '''
+^/(
+  (
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.venv
+    | _build
+    | build
+    | dist
+    | .notebooks
+    | .nox
+  )
+)
+'''
+
+[tool.isort]
+profile = "black"
+extend_skip = [".notebooks", ".nox", ".venv"]
+
+[tool.mypy]
+exclude = "^.notebooks/"
+ignore_missing_imports = true
+
+[tool.bandit]
+skips = ['B101']
+
+[tool.ruff]
+ignore = ["E501"]
+extend-exclude = [
+  "__pycache__",
+  "docs",
+  "site",
+  ".nox",
+  ".notebooks"
+]
+
+[tool.deptry]
+extend_exclude = ["docs", ".notebooks", "noxfile.py", "tasks.py"]
+ignore_transitive = ["{{cookiecutter.__package_slug}}"]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = true
+ignore-semiprivate = true
+ignore-private = true
+ignore-property-decorators = true
+ignore-module = true
+ignore-nested-functions = false
+ignore-nested-classes = true
+ignore-setters = true
+fail-under = 10
+exclude = [
+  "setup.py", "docs", "build", "src/{{cookiecutter.__package_slug}}/cli.py", "src/{{cookiecutter.__package_slug}}/commands"
+]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+# possible values: 0 (minimal output), 1 (-v), 2 (-vv)
+verbose = 0
+quiet = false
+whitelist-regex = []
+color = true
+omit-covered-files = false
+#generate-badge = "."
+#badge-format = "svg"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = [
+  "poetry-core>=1",
+]
