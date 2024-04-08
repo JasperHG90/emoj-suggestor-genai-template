@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "emoji_suggestor"
 version = "0.0.0"
-description = "Create emoji suggestions for input texts"
+description = "Create emoji suggestions for any text"
 authors = ["Jasper Ginn"]
 license = "MIT"
 readme = "README.md"
