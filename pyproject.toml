@@ -8,13 +8,14 @@ readme = "README.md"
 packages = [{ include = "emoji_suggestor", from = "src" }]
 
 [tool.poetry.scripts]
-emoji_suggestor = "emoji_suggestor.cli:entrypoint"
+emojifi = "emoji_suggestor.cli:entrypoint"
 
 [tool.poetry.dependencies]
 python = "^3.9,<3.12"
 typer = "^0.12.1"
 langchain = "^0.1.14"
-langchain-openai = "^0.1.1"
+langchain-openai = {version="^0.1.1", optional=true}
+langchain-google-vertexai = {version="^0.1.1", optional=true}
 pydantic = "^2.6.4"
 
 [tool.poetry.group.dev.dependencies]
@@ -27,6 +28,10 @@ isort = "^5.13.2"
 mypy = "^1.9.0"
 pre-commit = "^3.7.0"
 ipykernel = "^6.29.4"
+
+[tool.poetry.extras]
+"openai" = ["langchain-openai"]
+"vertexai" = ["langchain-google-vertexai"]
 
 [tool.codespell]
 skip = ".nox,.venv,.notebooks,.git,.secrets,docs,site,poetry.lock"

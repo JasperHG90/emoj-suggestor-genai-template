@@ -2,7 +2,7 @@ alias s := setup
 alias e := example
 
 install:
-    poetry install
+    poetry install -E openai -E vertexai --with dev
 
 pre_commit:
     poetry run pre-commit install
@@ -10,4 +10,4 @@ pre_commit:
 setup: install pre_commit
 
 example:
-    poetry run emoji_suggestor suggest "How do I make apple pie?"
+    poetry run emojifi text "How do I make apple pie?"

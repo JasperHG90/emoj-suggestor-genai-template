@@ -32,7 +32,7 @@ def version():
 
 
 @app.command(
-    name="suggest",
+    name="text",
     help="Suggestions for emojis based on input text",
     no_args_is_help=True,
 )
